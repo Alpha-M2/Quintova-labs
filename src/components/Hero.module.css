@@ -1,0 +1,98 @@
+.heroSection {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.backgroundAnimation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.glowOrb {
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(80px);
+    opacity: 0.5;
+}
+
+.glowOrb2 {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, rgba(100, 100, 255, 0.2) 0%, transparent 60%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(100px);
+    opacity: 0.3;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.headline {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, #A0A0A0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.subheadline {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ctaWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.primaryCta {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-family: 'JetBrains Mono', monospace, sans-serif;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    border-radius: 200px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.primaryCta:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    transform: translateY(-2px);
+}

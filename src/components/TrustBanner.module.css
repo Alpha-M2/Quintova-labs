@@ -1,0 +1,48 @@
+.bannerSection {
+    padding: 4rem 0;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    background: rgba(10, 10, 10, 0.4);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-align: center;
+}
+
+.logosTrack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    width: 100%;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.2);
+    transition: color 0.4s ease, transform 0.4s ease;
+    cursor: default;
+    letter-spacing: 0.05em;
+}
+
+.logo:hover {
+    color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
