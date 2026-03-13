@@ -1,13 +1,18 @@
 :root {
   --bg-primary: #050505;
   --bg-secondary: #111111;
-  --text-primary: #ececec;
+  --text-primary: #ECECEC;
   --text-secondary: #888888;
-  --accent-glow: rgba(0, 255, 255, 0.4);
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(20, 20, 20, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --accent-glow: rgba(0, 229, 255, 0.4);
+  /* #00E5FF */
+  --accent-border: #00E5FF;
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  /* Design system states 1px 0.05 opacity */
+  --glass-bg: rgba(20, 20, 20, 0.4);
+  /* Design system states #141414 at 40% */
+  --glass-border: rgba(255, 255, 255, 0.05);
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 * {
@@ -28,14 +33,20 @@ body {
 /* Glassmorphism Generic Class */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  border-radius: 4px;
+  /* Design system notes slightly rounded corners 4-12px */
 }
 
 /* Typography Utils */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -58,5 +69,6 @@ a:hover {
 }
 
 .section {
-  padding: 8rem 0;
+  padding: 140px 0;
+  /* Design System states 120-160px top/bottom */
 }

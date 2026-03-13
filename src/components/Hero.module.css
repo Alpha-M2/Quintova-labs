@@ -1,98 +1,227 @@
 .heroSection {
     position: relative;
-    min-height: 100vh;
+    min-height: calc(100vh - 64px);
+    /* Subtract nav height */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
     overflow: hidden;
-    text-align: center;
+    background: var(--bg-primary);
 }
 
-.backgroundAnimation {
+.heroSection::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
     pointer-events: none;
+    z-index: 10;
 }
 
-.glowOrb {
-    position: absolute;
-    top: 30%;
-    left: 60%;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(80px);
-    opacity: 0.5;
+.grid {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.glowOrb2 {
-    position: absolute;
-    top: 70%;
-    left: 40%;
-    width: 40vw;
-    height: 40vw;
-    background: radial-gradient(circle, rgba(100, 100, 255, 0.2) 0%, transparent 60%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(100px);
-    opacity: 0.3;
+/* LEFT COLUMN */
+.leftCol {
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 120px 80px 120px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .content {
     position: relative;
-    z-index: 1;
-    max-width: 800px;
-    padding: 0 2rem;
+    z-index: 2;
+    max-width: 700px;
 }
 
 .headline {
-    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-family: var(--font-sans);
+    font-size: clamp(3rem, 5vw, 88px);
     font-weight: 700;
     letter-spacing: -0.04em;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(180deg, #FFFFFF 0%, #A0A0A0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 1.1;
+    line-height: 1.05;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
 }
 
 .subheadline {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: 24px;
+    font-weight: 500;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+}
+
+.bodyCopy {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 3.5rem;
+    max-width: 650px;
 }
 
 .ctaWrapper {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .primaryCta {
     background: transparent;
     color: var(--text-primary);
-    border: 1px solid var(--border-subtle);
-    padding: 0.75rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
     font-size: 1rem;
-    font-family: 'JetBrains Mono', monospace, sans-serif;
-    letter-spacing: 0.05em;
+    font-family: var(--font-mono);
     cursor: pointer;
-    border-radius: 200px;
     transition: all 0.3s ease;
-    backdrop-filter: blur(4px);
 }
 
 .primaryCta:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(0, 255, 255, 0.5);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.02);
+    border-color: var(--accent-border);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.secondaryLink {
+    color: var(--text-primary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.2s ease;
+}
+
+.secondaryLink .arrow {
+    transition: transform 0.2s ease;
+}
+
+.secondaryLink:hover {
+    opacity: 0.8;
+}
+
+.secondaryLink:hover .arrow {
+    transform: translateX(4px);
+}
+
+.microcopy {
+    font-size: 14px;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+/* RIGHT COLUMN */
+.rightCol {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(0, 229, 255, 0.03) 0%, transparent 60%);
+}
+
+.visualContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hypercube {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: slowSpin 30s linear infinite;
+}
+
+.cube {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 40px rgba(0, 229, 255, 0.1) inset, 0 0 40px rgba(0, 229, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+}
+
+.cubeInner {
+    width: 100px;
+    height: 100px;
+    animation: counterSpin 20s linear infinite;
+}
+
+.cubeOuter {
+    width: 250px;
+    height: 250px;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+@keyframes slowSpin {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+@keyframes counterSpin {
+    0% {
+        transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotateX(-360deg) rotateY(-360deg);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .leftCol {
+        border-right: none;
+        padding: 80px 40px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .rightCol {
+        display: none;
+        /* Hide visual on mobile for clean hierarchy */
+    }
+
+    .ctaWrapper {
+        justify-content: center;
+    }
 }

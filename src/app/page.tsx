@@ -1,5 +1,5 @@
 import Hero from '@/components/Hero';
-import TrustBanner from '@/components/TrustBanner';
+import StatsBar from '@/components/StatsBar';
 import ValueProposition from '@/components/ValueProposition';
 import ProjectShowcase from '@/components/ProjectShowcase';
 import EngineRoom from '@/components/EngineRoom';
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <TrustBanner />
+      <StatsBar />
       <ValueProposition />
       <ProjectShowcase />
       <EngineRoom />
