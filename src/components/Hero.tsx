@@ -8,7 +8,7 @@ export default function Hero() {
         {/* Left Column - 60% */}
         <div className={styles.leftCol}>
           <div className={styles.content}>
-            <h1 className={styles.headline}>The engineering partner for Tier-1 Web3 protocols.</h1>
+            <h1 className={styles.headline}>Stop bleeding alpha to latency.</h1>
             <p className={styles.subheadline}>
               Behind every dominant decentralized application is architecture built for absolute precision and stealth elegance.
             </p>
@@ -18,7 +18,7 @@ export default function Hero() {
 
             <div className={styles.ctaWrapper}>
               <button className={styles.primaryCta}>
-                [ Enter the Laboratory ]
+                [ Audit Your Infrastructure ]
               </button>
               <a href="#" className={styles.secondaryLink}>
                 View Showcase <span className={styles.arrow}>→</span>
